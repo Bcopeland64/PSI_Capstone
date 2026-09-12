@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Computer",
+        "creation_date": "2026-09-12 02:32:54",
+        "last_update_date": "2026-09-12 02:32:54",
+        "description": "COMP",
+        "status": "Open"
+    },
+    {
+        "id": 2,
+        "title": "MOUSE",
+        "creation_date": "2026-09-12 02:33:00",
+        "last_update_date": "2026-09-12 02:34:12",
+        "description": "MMMM",
+        "status": "Closed"
+    },
+    {
+        "id": 3,
+        "title": "TEST",
+        "creation_date": "2026-09-12 02:33:40",
+        "last_update_date": "2026-09-12 02:33:40",
+        "description": "",
+        "status": "Open"
+    }
+]
