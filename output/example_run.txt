@@ -1,0 +1,5 @@
+Run command:
+python -m src.main data/sample_evidence
+
+The command prints processes, recent files, SHA-256 hashes, and a timeline,
+then writes output/triage_report.csv.
