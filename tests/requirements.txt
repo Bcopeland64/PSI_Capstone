@@ -1,0 +1,2 @@
+# Standard library only - no external dependencies needed
+# Python 3.8+
