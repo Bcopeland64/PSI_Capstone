@@ -1,0 +1,19 @@
+=== NETWORK TRIAGE REPORT ===
+
+Top talker (most bytes sent): 10.2.0.5 (20700 bytes)
+
+Failed connection attempts per IP:
+  10.2.0.5: 0 failed
+  10.2.0.6: 0 failed
+  10.2.0.7: 3 failed
+  10.2.0.8: 1 failed
+
+=== SUSPICIOUS ACTIVITY ===
+
+IP: 10.2.0.7
+Total bytes: 650
+Connections: 3
+Failed attempts: 3
+Failure rate: 100%
+Target ports: [8080]
+Reason: Repeated failed connections with high failure rate
