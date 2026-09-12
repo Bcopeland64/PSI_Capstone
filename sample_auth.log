@@ -1,0 +1,7 @@
+Jan  4 09:10:01 srv sshd: Accepted password for alice from 10.0.0.5
+Jan  4 09:10:22 srv sshd: Failed password for root from 45.33.12.9
+Jan  4 09:10:24 srv sshd: Failed password for root from 45.33.12.9
+Jan  4 09:11:03 srv sshd: Failed password for admin from 45.33.12.9
+Jan  4 09:11:47 srv sshd: Accepted password for bob from 10.0.0.9
+Jan  4 09:12:10 srv sshd: Failed password for admin from 91.198.174.2
+Jan  4 09:12:55 srv sshd: Failed password for root from 45.33.12.9

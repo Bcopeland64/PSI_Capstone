@@ -1,3 +1,7 @@
+# Python_on_Security
+
+Python On Security Course with Brandon Copeland at Darb.Tech Programm
+
 # 🚀 Python Workshop: Capstone Project
 
 Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
@@ -48,3 +52,4 @@ capstone_project/
 ├── .gitignore             # Git ignore file for __pycache__, envs, etc.
 ├── requirements.txt       # List of Python dependencies
 └── README.md              # Project documentation and setup instructions
+```
