@@ -1,0 +1,4 @@
+2026-09-10T10:15:00 [INFO] Process started: /usr/bin/bash
+2026-09-10T10:20:15 [WARN] File created: /tmp/loader.sh
+2026-09-10T11:30:00 [ERROR] File deleted: /tmp/loader.sh
+2026-09-10T11:45:00 [CRITICAL] Unauthorized access attempt from 198.51.100.23

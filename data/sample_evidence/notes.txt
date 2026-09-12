@@ -1,0 +1,4 @@
+Investigator notes:
+- 2026-09-10T08:15:22 Suspicious connection from 192.168.1.45 (severity: INFO)
+- 2026-09-10T08:20:10 Multiple failed logins from 10.0.0.12 (severity: WARN)
+- 2026-09-10T09:05:12 Reverse shell attempt from 203.0.113.55 (severity: CRITICAL)
