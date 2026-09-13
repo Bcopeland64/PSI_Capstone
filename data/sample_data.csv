@@ -1,0 +1,3 @@
+filename,event_type,source
+test.log,file_created,local
+example.txt,file_modified,local
