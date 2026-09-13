@@ -1,0 +1,7 @@
+2026-09-11 09:15:22 INFO Login successful user=admin ip=192.168.1.10
+2026-09-11 09:20:11 ERROR Failed login user=admin ip=192.168.1.50
+2026-09-11 09:22:45 WARNING Failed login user=root ip=10.0.0.25
+2026-09-11 09:30:03 INFO Login successful user=user1 ip=192.168.1.15
+2026-09-11 09:35:18 ERROR Failed login user=admin ip=192.168.1.50
+2026-09-11 09:40:27 ERROR Failed login user=test ip=172.16.0.8
+2026-09-11 09:45:10 INFO Login successful user=user2 ip=192.168.1.20
