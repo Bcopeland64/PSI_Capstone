@@ -1,0 +1,6 @@
+File Name,File Type,Risk Level,Risk Score,Failed Logins,Warnings,Errors,Critical Events,Denied Events,Unique IP Addresses,Size (Bytes),Last Modified,SHA-256,File Path,Reasons
+authentication.log,.log,CRITICAL,11,4,0,0,0,1,192.168.1.10; 45.33.12.9,375,2026-09-13 21:57:08,62b1568c45257a4da2dc7165414ff8f790e0d35ee435eb64231b902bcf9a6267,data/sample_evidence\authentication.log,4 failed login event(s) detected; 1 denied access event(s) detected; Repeated activity from the same IP address detected
+network.log,.log,MEDIUM,3,0,1,1,0,0,10.0.0.5; 91.198.174.2,244,2026-09-13 21:57:27,3269746f750f689319ad7d3b7d15c7b6ef4bddb7ae4d90c31ee62ce885901776,data/sample_evidence\network.log,1 warning event(s) detected; 1 error event(s) detected
+normal_activity.log,.log,LOW,0,0,0,0,0,0,192.168.1.20,171,2026-09-13 21:58:01,aa72c410fcde46a94daf1a8b6ba1f6d04f853376ae08d2751cb5c87ba08d51f2,data/sample_evidence\normal_activity.log,None
+notes.txt,.txt,LOW,0,0,0,0,0,0,None,189,2026-09-13 21:57:52,8e8609add0d2dd322c522b0f0a5175ccd5c493f834f115e18491d64bf4b65e21,data/sample_evidence\notes.txt,None
+system.log,.log,HIGH,7,0,1,1,1,0,None,232,2026-09-13 21:57:38,5a07318bb1ffe2f6a2222eee5601c42c33efe1d51fc32bb6c807140c163a9645,data/sample_evidence\system.log,1 warning event(s) detected; 1 error event(s) detected; 1 critical event(s) detected
