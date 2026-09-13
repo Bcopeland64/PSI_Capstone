@@ -1,0 +1,5 @@
+2026-09-13 10:00:00 System startup completed
+2026-09-13 10:03:15 Service web-server started
+2026-09-13 10:15:42 WARNING high memory usage
+2026-09-13 10:17:01 CRITICAL service failure
+2026-09-13 10:17:05 ERROR service unavailable

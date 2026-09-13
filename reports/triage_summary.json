@@ -1,0 +1,15 @@
+{
+    "files_scanned": 5,
+    "total_risk_score": 21,
+    "overall_risk_level": "CRITICAL",
+    "reasons": [
+        "4 failed login event(s) detected",
+        "1 denied access event(s) detected",
+        "Repeated activity from the same IP address detected",
+        "1 warning event(s) detected",
+        "1 error event(s) detected",
+        "1 warning event(s) detected",
+        "1 error event(s) detected",
+        "1 critical event(s) detected"
+    ]
+}
