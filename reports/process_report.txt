@@ -1,0 +1,27 @@
+Found 269 running processes.
+
+Recent files:
+Path: data\test.log
+Modified: 2026-09-12T15:36:46.210422
+SHA-256: 68b6b59d04521cbde4fbbfab2b908aac90eb1867a6ac323c7fc3733b581e7430
+
+Process triage:
+Process: 
+PID: 188
+Risk: REVIEW
+Reasons: Missing process name, Process status is stopped
+
+Process: LockApp.exe
+PID: 2180
+Risk: REVIEW
+Reasons: Process status is stopped
+
+Process: ShellExperienceHost.exe
+PID: 3740
+Risk: REVIEW
+Reasons: Process status is stopped
+
+Process: SystemSettings.exe
+PID: 19128
+Risk: REVIEW
+Reasons: Process status is stopped
