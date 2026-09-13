@@ -1,0 +1,2 @@
+Sample cybersecurity triage evidence file.
+This file is harmless sample data for the capstone project.

@@ -1,0 +1,2 @@
+Sample incident report.
+No real malicious data is included.
