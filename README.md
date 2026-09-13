@@ -1,50 +1,94 @@
-# 🚀 Python Workshop: Capstone Project
+# Security Alert Triage CLI
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
+A command-line tool that reads raw security alerts (failed logins, root
+login attempts, privilege escalation events) from a CSV file, classifies
+each one by severity, groups activity by source IP, and exports a JSON
+triage report, automating the first-pass triage a SOC analyst does
+before deeper investigation.
 
----
+## Features
 
-## 📌 Project Overview
+- **Functional design**: alerts and summaries are plain dictionaries;
+  behavior lives in small, focused functions rather than classes.
+- **Data persistence**: reads CSV input, writes a JSON report.
+- **Validation & error handling**: invalid CSV rows are skipped (with a
+  printed warning) instead of crashing the program; a missing input file
+  raises a clear error instead of a traceback.
+- **Tests**: `pytest` unit tests cover the severity classification rules.
 
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
+## Project Structure
 
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
-
----
-
-## 🛠️ Required Technical Components
-
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
-
----
-
-## 📂 Repository Structure
-
-Your final submission repository should adhere to a clean layout similar to this:
-
-```text
-capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
+```
+PSI_Capstone/
+├── data/
+│   └── sample_alerts.csv
+├── src/
 │   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
+│   ├── main.py       # CLI entry point (the menu loop)
+│   ├── models.py     # alert/summary dicts + classify_alert()
+│   ├── logic.py      # load_alerts(), summarize_by_source(), export_report()
+│   └── utils.py      # validate_row(), is_valid_ip()
+├── tests/
 │   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## Setup
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/dinaabdulhadi/PSI_Capstone.git
+cd PSI_Capstone
+
+# 2. Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+```
+
+## Usage
+
+Run the CLI from the project root (the folder containing `src/`):
+
+```bash
+python -m src.main
+```
+
+Menu options:
+1. **Load and triage alerts**: reads `data/sample_alerts.csv`, validates
+   each row, and classifies every alert's severity.
+2. **View summary by source IP**: prints alerts grouped by IP, showing
+   total failed attempts, event types seen, and the worst severity found.
+3. **Export report to JSON** :saves the grouped summary to `data/report.json`.
+4. **Exit**
+
+## Running Tests
+
+```bash
+python -m pytest tests/ -v
+```
+
+## Severity Rules
+
+| Condition                                              | Severity |
+|-----------------------------------------------------------|----------|
+| `event_type` is "privilege escalation"                     | CRITICAL |
+| `event_type` is "root login attempt" with 2+ failed attempts | CRITICAL |
+| `event_type` is "root login attempt" with 0–1 failed attempts | HIGH     |
+| 10+ failed attempts (any other event type)                 | CRITICAL |
+| 5–9 failed attempts                                        | HIGH     |
+| 1–4 failed attempts                                        | MEDIUM   |
+| 0 failed attempts (e.g. a successful login)                | LOW      |
+
+Privilege escalation is always treated as critical since there's rarely a
+routine reason for it to occur. Root login attempts start at HIGH rather
+than CRITICAL, since a single attempt could be a legitimate admin, repeated
+attempts are what start to look like guessing.
+
+## License
+
+MIT

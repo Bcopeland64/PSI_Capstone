@@ -1,0 +1,11 @@
+timestamp,source_ip,username,event_type,failed_attempts
+2026-09-01 03:14:22,185.220.101.5,root,root login attempt,1
+2026-09-01 03:15:01,185.220.101.5,root,root login attempt,3
+2026-09-01 04:02:10,192.168.1.44,admin,failed login,7
+2026-09-01 04:03:55,192.168.1.44,admin,failed login,4
+2026-09-01 05:11:30,45.83.64.12,dina,failed login,1
+2026-09-01 06:45:00,45.83.64.12,dina,successful login,0
+2026-09-01 07:22:18,103.99.1.20,root,privilege escalation,1
+2026-09-01 08:05:45,192.168.1.200,guest,failed login,12
+2026-09-01 09:30:12,172.16.0.9,svc_backup,failed login,2
+2026-09-01 10:00:00,172.16.0.9,svc_backup,successful login,0
