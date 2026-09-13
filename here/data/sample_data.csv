@@ -1,0 +1,9 @@
+title,description,reporter
+Server down in EU region,Production server outage affecting all EU customers since 9am,Amina
+Cannot log in after password reset,User cannot log in after resetting password, gets stuck on loading screen,Yousef
+Invoice shows wrong amount,The latest invoice charged double the subscription price,Layla
+Typo on pricing page,Small typo in the pricing page footer text,Omar
+How do I export my data,Question about exporting account data to CSV,Rana
+Dashboard loading slowly,Dashboard takes over 30 seconds to load for large accounts,Hassan
+Suspicious login attempt,Received alert about unauthorized login attempt from unknown IP,Dana
+Feature request: dark mode,Would like a dark mode option for the web app,Khaled
