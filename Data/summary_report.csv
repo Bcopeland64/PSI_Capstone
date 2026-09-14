@@ -1,0 +1,4 @@
+event_type,count
+process_started,2
+file_created,3
+file_deleted,1

@@ -1,0 +1,7 @@
+timestamp,event_type,path
+2026-01-04T09:00:01,process_started,/usr/bin/bash
+2026-01-04T09:01:15,file_created,/tmp/dropper.sh
+2026-01-04T09:01:20,file_created,/tmp/payload.bin
+2026-01-04T09:05:44,process_started,/tmp/dropper.sh
+2026-01-04T10:02:10,file_created,/home/user/report.docx
+2026-01-04T10:03:00,file_deleted,/tmp/payload.bin
