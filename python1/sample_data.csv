@@ -1,0 +1,21 @@
+timestamp,source_ip,event_type,severity,description
+timestamp,source_ip,event_type,severity,description
+2026-09-14 10:15:00,192.168.1.50,Failed Login,MEDIUM,Failed SSH login attempt
+2026-09-14 10:15:05,192.168.1.50,Failed Login,HIGH,5 consecutive failed logins
+2026-09-14 10:18:22,10.0.0.12,Port Scan,CRITICAL,Port scanning detected across subnets
+2026-09-14 10:20:00,192.168.1.100,File Access,LOW,Accessed public file share
+2026-09-14 10:25:11,10.0.0.15,Malware Detected,CRITICAL,Unrecognized binary executed
+import os
+
+# Helper function to check if the file path exists
+def check_file_exists(filename):
+    if os.path.exists(filename):
+        return True
+    else:
+        return False
+
+# Helper function to remove extra spaces from user input
+def clean_input(text):
+    return text.strip()
+
+
