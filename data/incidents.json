@@ -1,0 +1,8 @@
+[
+    {
+        "incident_id": "INC002",
+        "title": "Malware Alert",
+        "severity": "High",
+        "status": "Open"
+    }
+]

@@ -1,50 +1,120 @@
-# 🚀 Python Workshop: Capstone Project
+# 🔐 Cyber Incident Tracker
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
-
----
+A Python-based Command Line Interface (CLI) application for tracking and managing cybersecurity incidents.
 
 ## 📌 Project Overview
 
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
+Cyber Incident Tracker is a simple incident management system that allows users to:
 
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
+- Add cybersecurity incidents
+- View all incidents
+- Search incidents by ID
+- Update incident status
+- Delete incidents
+- Store incident data persistently using JSON
 
----
-
-## 🛠️ Required Technical Components
-
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
+This project was developed as part of the Python Intensive Capstone Project.
 
 ---
 
-## 📂 Repository Structure
+## 🚀 Features
 
-Your final submission repository should adhere to a clean layout similar to this:
+### Add Incident
+Create a new incident with:
+- Incident ID
+- Title
+- Severity Level
+- Status
+
+### View Incidents
+Display all stored incidents.
+
+### Search Incident
+Find an incident using its unique ID.
+
+### Update Status
+Update the status of an existing incident.
+
+### Delete Incident
+Remove an incident from the system.
+
+---
+
+## 🛠 Technologies Used
+
+- Python 3.14.3
+- JSON
+- Object-Oriented Programming (OOP)
+- File Handling
+- Modular Programming
+
+---
+
+## 📂 Project Structure
 
 ```text
-capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
-│   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
-│   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+Renad_Cyber_Incident_Tracker/
+│
+├── data/
+│   └── incidents.json
+│
+├── src/
+│   ├── main.py
+│   ├── logic.py
+│   ├── models.py
+│   └── data_handler.py
+│
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ▶️ How to Run
+
+Navigate to the src folder:
+
+```bash
+cd src
+```
+
+Run the application:
+
+```bash
+python main.py
+```
+
+---
+
+## 💻 Example Menu
+
+```text
+=== Cyber Incident Tracker ===
+
+1. Add Incident
+2. View All Incidents
+3. Search Incident
+4. Update Status
+5. Delete Incident
+6. Exit
+```
+
+---
+
+## 🎯 Learning Outcomes
+
+This project demonstrates:
+
+- Object-Oriented Programming (OOP)
+- CRUD Operations
+- JSON Data Persistence
+- Error Handling
+- Modular Code Design
+- CLI Application Development
+
+---
+
+## 👩‍💻 Author
+
+Renad Al-Tarawneh
+Information Security & Digital Forensics Graduate
