@@ -1,0 +1,19 @@
+# Capstone Project: End-to-End Log Triage Script
+
+This is my capstone assignment for the Python Workshop. It provides an interactive CLI program to inspect, filter, and summarize security incident log files.
+
+## Features
+- Loads `.csv` and `.json` log datasets into Pandas DataFrames.
+- Interactive CLI with input validation.
+- Filters incidents by severity level (LOW, MEDIUM, HIGH, CRITICAL).
+- Exports summary metrics to a JSON report.
+
+## How to Run
+1. Install requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Run the main script:
+   ```bash
+   python src/main.py
+   ```
