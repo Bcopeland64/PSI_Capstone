@@ -1,50 +1,17 @@
-# 🚀 Python Workshop: Capstone Project
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
 
----
 
-## 📌 Project Overview
+# Forensic & Network Triage CLI Tool
 
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
+A modular, OOP-based Python Incident Response CLI application designed to automate host network probing, filesystem metadata collection, and cryptographic SHA-256 artifact hashing.
 
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
+## Features
+* **Modular Architecture**: Separate modules for utilities (`utils.py`), business logic (`logic.py`), and CLI entry (`main.py`).
+* **OOP Paradigms**: `TriageScanner` class handles all system interactions and state.
+* **Error Handling**: Graceful exception catches for socket timeouts and missing files.
+* **Data Persistence**: Automatic export of triage artifacts to JSON (`data/triage_report.json`).
 
----
-
-## 🛠️ Required Technical Components
-
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
-
----
-
-## 📂 Repository Structure
-
-Your final submission repository should adhere to a clean layout similar to this:
-
-```text
-capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
-│   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
-│   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+## Execution
+Run the entry point from the project root:
+```bash
+python src/main.py
