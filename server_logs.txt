@@ -1,0 +1,8 @@
+2026-09-10 10:00:01 INFO - System started successfully.
+    2026-09-10 10:05:23 CRITICAL - Database connection lost!
+    2026-09-10 10:06:12 WARNING - Disk space reaching 90%.
+    2026-09-10 10:10:00 Failed password for admin from 192.168.1.50 port 22
+    2026-09-10 10:10:05 Failed password for root from 10.0.0.15 port 22
+    2026-09-10 10:10:12 Failed password for invalid_user from 192.168.1.50 port 22
+    2026-09-10 10:10:18 Failed password for admin from 192.168.1.50 port 22
+    2026-09-10 10:15:45 Unauthorized access attempt detected on admin panel.
