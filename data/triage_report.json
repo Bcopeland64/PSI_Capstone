@@ -1,0 +1,39 @@
+{
+    "target_directory": "C:\\Users\\ALI-ALKHASONEH\\Downloads\\python-security-class\\PSI_Capstone\\data",
+    "running_processes_sample": [
+        {
+            "name": "System Idle Process",
+            "pid": 0
+        },
+        {
+            "name": "System",
+            "pid": 4
+        },
+        {
+            "name": "",
+            "pid": 140
+        },
+        {
+            "name": "Registry",
+            "pid": 184
+        },
+        {
+            "name": "Code.exe",
+            "pid": 532
+        }
+    ],
+    "recent_activity": [
+        {
+            "filename": "test.txt",
+            "age_seconds": 64
+        },
+        {
+            "filename": "triage_report.json",
+            "age_seconds": 234
+        }
+    ],
+    "cryptographic_hashes": {
+        "test.txt": "345ec392d51e57e84e58314d40382921060186ae984e86f192dbd7a3cd9ae84c",
+        "triage_report.json": "00b5e9349091b8c601c6f6c14edb9b6f90a1b836460136c03dca03683f9f9100"
+    }
+}
