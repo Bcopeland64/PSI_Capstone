@@ -1,0 +1,9 @@
+title,description,category,reporter
+Login page throwing errors,Users cannot login since this morning after the update,BUG,alice@example.com
+Production API down,The main API has been down for outage for 15 minutes affecting all customers,OUTAGE,bob@example.com
+Add CSV export button,Would be nice to export the dashboard data as CSV,FEATURE_REQUEST,carol@example.com
+Suspicious login attempts,Possible security breach detected from unknown IP addresses,SECURITY,dave@example.com
+Invoice total incorrect,Billing shows wrong total on the invoice PDF for last month,BILLING,erin@example.com
+Typo on homepage,Small typo in the footer text,OTHER,frank@example.com
+Payment failed on checkout,Customer reports payment failed repeatedly during checkout,BILLING,grace@example.com
+App crash on upload,The app crashes every time a large file is uploaded,BUG,heidi@example.com

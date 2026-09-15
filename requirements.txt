@@ -1,0 +1,6 @@
+# No third-party runtime dependencies are strictly required —
+# the app relies on the Python standard library (sqlite3, csv, dataclasses,
+# enum) so it runs anywhere Python 3.10+ is installed.
+#
+# Testing dependency:
+pytest>=7.4
