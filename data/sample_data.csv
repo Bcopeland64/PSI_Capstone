@@ -1,0 +1,3 @@
+service,username,notes
+GitHub,dev@example.com,"Example row only -- the real vault stores encrypted passwords in vault.db, not plaintext in this file."
+Email,dev@example.com,"Example row only."

@@ -1,50 +1,131 @@
-# 🚀 Python Workshop: Capstone Project
+# Password Vault & Strength Analyzer — Cyber Security CLI Tool
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
+A capstone project for the Python Workshop. An interactive
+command-line application that securely stores credentials
+(encrypted at rest with AES via `cryptography.Fernet`), analyzes
+password strength, detects password reuse across services, and
+generates strong random passwords.
 
----
+## Security Design
 
-## 📌 Project Overview
+- **Nothing is ever stored in plaintext.** Every password is
+  encrypted with a key derived from your master password using
+  PBKDF2-HMAC-SHA256 (390,000 iterations) before being written to
+  SQLite.
+- **The master password itself is never stored.** Only a random
+  salt and an encrypted "verifier" string are kept, used solely to
+  confirm the correct master password was entered on unlock.
+- **Reports never leak passwords.** The vault health report and CSV
+  export only ever include service names, usernames, and strength
+  ratings — never the passwords themselves.
+- This is a defensive security tool (a password manager), not an
+  offensive one — it does not attempt to crack, guess, or exfiltrate
+  anyone else's credentials.
 
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
+## Features
 
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
+- Add credentials (service, username, password) with immediate
+  strength feedback.
+- List all credentials in a formatted table (via `rich`), passwords
+  revealed only after unlocking the vault with the master password.
+- Look up credentials by service name.
+- Vault health report: average strength score, weak-password count,
+  and reused-password warnings.
+- Generate cryptographically random strong passwords.
+- Export a security summary to CSV (metadata only, no passwords).
+- Delete a credential by ID.
 
----
+## Project Structure
 
-## 🛠️ Required Technical Components
-
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
-
----
-
-## 📂 Repository Structure
-
-Your final submission repository should adhere to a clean layout similar to this:
-
-```text
-capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
+```
+security_vault/
+├── data/
+│   ├── sample_data.csv     # Illustrative example (no real secrets)
+│   └── vault.db             # Created automatically on first run
+├── src/
 │   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
-│   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+│   ├── main.py               # CLI entry point / menu loop
+│   ├── models.py             # Credential dataclass
+│   ├── security.py            # Encryption, key derivation, strength analysis
+│   ├── data_handler.py        # SQLite persistence layer
+│   └── utils.py                # Input validation
+├── tests/
+│   └── test_logic.py           # Pytest unit tests
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## Setup
+
+```bash
+# 1. Clone your fork
+git clone <your-fork-url>
+cd security_vault
+
+# 2. (Recommended) create a virtual environment
+python -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+```
+
+## Running the App
+
+From the project root:
+
+```bash
+python -m src.main
+```
+
+On first run you'll be asked to choose a master password (this
+initializes your vault). On future runs you'll be asked to enter it
+to unlock the vault. **There is no password reset** — if you forget
+your master password, the encrypted data cannot be recovered. This
+is by design (the same trade-off real password managers make).
+
+```
+========== Password Vault ==========
+1. Add credential
+2. List all credentials (reveal passwords)
+3. Look up by service
+4. Vault health report
+5. Generate a strong password
+6. Export security summary to CSV (no passwords included)
+7. Delete a credential
+8. Exit
+======================================
+```
+
+## Running Tests
+
+```bash
+pytest
+```
+
+## Design Notes
+
+- **Modular architecture**: encryption/analysis (`security.py`),
+  persistence (`data_handler.py`), data model (`models.py`),
+  validation (`utils.py`), reporting (`logic.py`), and the CLI
+  (`main.py`) are all separated so each piece can be tested and
+  changed independently.
+- **OOP**: `Credential` is a `dataclass`; `VaultDatabase` encapsulates
+  all SQLite access behind a small, well-defined interface.
+- **Data persistence**: encrypted credentials are stored in a local
+  SQLite database (`data/vault.db`), created automatically on first
+  run.
+- **Error handling**: all user input is validated (`utils.py`), and
+  every database, encryption, and file operation is wrapped in
+  `try/except` with clear, actionable error messages.
+- **Third-party packages**: `cryptography` for AES encryption and
+  key derivation, `rich` for formatted terminal tables, `pytest` for
+  the test suite.
+
+## Possible Extensions
+
+- Add a password-expiry reminder (flag credentials older than N days).
+- Support exporting/importing an encrypted backup of the whole vault.
+- Add a check against a local list of known-breached passwords
+  (e.g. a downloaded Have I Been Pwned hash range) for extra credit.
