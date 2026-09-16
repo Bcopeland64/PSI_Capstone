@@ -1,0 +1,6 @@
+alert_id,alert_type,severity,source_ip
+A1,Port Scan,Low,203.0.113.5
+A2,Ransomware,Critical,198.51.100.14
+A3,Failed Login,Medium,203.0.113.201
+A4,Malware Detection,High,192.0.2.77
+A5,Policy Violation,Low,192.0.2.44
