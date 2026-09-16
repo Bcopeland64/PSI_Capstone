@@ -1,0 +1,30 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Runtime data (the encrypted vault database and generated reports)
+data/vault.db
+data/report.csv
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
