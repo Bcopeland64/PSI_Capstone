@@ -1,50 +1,112 @@
-# 🚀 Python Workshop: Capstone Project
+# Cybersecurity Log Analyzer
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
+A simple Python-based cybersecurity log analysis tool.
 
----
+The project reads log files, analyzes IP address activity and error events, stores the results in CSV format, and generates a visual report.
 
-## 📌 Project Overview
+## Features
 
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
+* Read cybersecurity log files
+* Count log events by IP address
+* Count `ERROR` events
+* Validate input log files
+* Handle missing and invalid files
+* Store analysis results in CSV format
+* Generate a bar chart
+* Object-Oriented Programming
+* Unit testing with pytest
 
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
-
----
-
-## 🛠️ Required Technical Components
-
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
-
----
-
-## 📂 Repository Structure
-
-Your final submission repository should adhere to a clean layout similar to this:
+## Project Structure
 
 ```text
-capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
+cyber-log-analyzer/
+│
+├── data/
+│   ├── sample.log
+│   ├── report.csv
+│   └── ip_activity.png
+│
+├── src/
 │   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
-│   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+│   ├── main.py
+│   ├── analyzer.py
+│   └── utils.py
+│
+├── tests/
+│   └── test_analyzer.py
+│
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## Technologies
+
+* Python
+* Pandas
+* Matplotlib
+* Pytest
+
+## Installation
+
+Install the required packages:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+## Usage
+
+Run the application:
+
+```bash
+python src/main.py
+```
+
+The analyzer will process the sample log file and generate:
+
+* `data/report.csv`
+* `data/ip_activity.png`
+
+## Testing
+
+Run the unit tests:
+
+```bash
+python -m pytest
+```
+
+## Example Output
+
+```text
+=== Cybersecurity Log Analyzer ===
+Total log lines: 6
+Total errors: 2
+
+IP Address Activity:
+192.168.1.10: 2 events
+10.0.0.5: 3 events
+192.168.1.20: 1 event
+
+Report saved to data/report.csv
+Graph saved to data/ip_activity.png
+```
+
+## Learning Objectives
+
+This project demonstrates:
+
+* Python functions
+* Object-Oriented Programming
+* File handling
+* Exception handling
+* Input validation
+* Data processing
+* Pandas
+* Matplotlib
+* Unit testing
+* Modular project structure
+
+## Disclaimer
+
+This project is intended for educational purposes and analyzes sample log data only.
