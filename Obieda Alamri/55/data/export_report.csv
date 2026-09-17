@@ -1,0 +1,2 @@
+incident_id,title,severity,timestamp,type,ip_address
+INC-101,sf,LOW,2026-09-17 14:40:59,Network,100.1.12.10
