@@ -1,50 +1,67 @@
-# 🚀 Python Workshop: Capstone Project
+# NetLogSec 🛡️
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
+**NetLogSec** is a modular Python-based network security and log analysis utility designed to parse security logs, detect brute-force attacks using rolling time windows, and generate detailed threat reports. 
 
----
-
-## 📌 Project Overview
-
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
-
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
+Developed as a cybersecurity capstone project, it demonstrates clean architecture, Object-Oriented Programming (OOP), data manipulation with Pandas, and robust error handling.
 
 ---
 
-## 🛠️ Required Technical Components
+## 🚀 Features
 
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
+* **Log Parsing & Regex:** Extracts timestamps, IP addresses, statuses, and usernames from raw log data.
+* **Time-Window Brute-Force Detection:** Detects rapid consecutive failed login attempts within a specific rolling time window (e.g., 5 minutes).
+* **Severity Scoring:** Automatically categorizes security alerts into `Medium` or `High` threat levels.
+* **Input Validation:** Securely validates IPv4 and IPv6 addresses using Python's standard `ipaddress` library.
+* **Automated Testing:** Comprehensive unit tests implemented using `pytest`.
 
 ---
 
-## 📂 Repository Structure
-
-Your final submission repository should adhere to a clean layout similar to this:
+## 📂 Project Structure
 
 ```text
-capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
+net-log-sec/
+├── data/
+│   └── sample_auth.log        # Sample log dataset for testing
+├── src/
 │   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
-│   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+│   ├── main.py            # CLI entry point and user interaction
+│   ├── logic.py           # Core log analysis and time-window rules
+│   ├── models.py          # Data classes (SecurityAlert OOP structure)
+│   └── utils.py           # Helper validation functions (IP, files)
+├── tests/
+│   └── test_logic.py      # Unit tests for validation and models
+├── .gitignore             # Git ignore rules for cache & virtual environments
+├── requirements.txt       # Project dependencies
+└── README.md              # Project documentation
+
+
+🛠️ Installation & Setup
+Clone the Repository:
+
+Bash
+git clone [https://github.com/AL-A9EL/net-log-sec.git](https://github.com/AL-A9EL/net-log-sec.git)
+cd net-log-sec
+Install Dependencies:
+
+Bash
+pip install -r requirements.txt
+
+💻 Usage
+Run the interactive Command Line Interface (CLI):
+
+Bash
+python -m src.main
+CLI Menu Options:
+
+1. Load and Parse Log File: Enter the path to your log file (e.g., data/sample_auth.log).
+2. Detect Brute Force Attacks: Set your preferred time window (minutes) and failed attempts threshold to scan for threats.
+3. Export Comprehensive Report: Save parsed logs into a structured CSV report.
+4. Exit: Safely close the utility.
+
+🧪 Running Unit Tests
+To verify code integrity and run automated unit tests with pytest:
+
+Bash
+python -m pytest -v
+👨‍💻 Author
+Al-Asel Abdalla Twairesh
