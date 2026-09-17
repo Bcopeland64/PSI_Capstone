@@ -1,0 +1,29 @@
+{
+    "target_folder": "data/sample_evidence",
+    "generated_at": "Sat Sep 12 05:49:00 2026",
+    "process_count": 10,
+    "file_count": 3,
+    "recent_files": [],
+    "duplicate_files": {},
+    "artifact_analysis": {
+        "total_events": 23,
+        "by_type": {
+            "process_started": 8,
+            "file_created": 8,
+            "file_deleted": 7
+        },
+        "by_hour": {
+            "08": 9,
+            "09": 4,
+            "10": 7,
+            "11": 3
+        }
+    },
+    "port_80_open": false,
+    "whoami": "ahmad\\ahmadfasfous",
+    "http_checks": {
+        "https://httpbin.org/status/200": 200,
+        "https://httpbin.org/status/403": 403,
+        "https://httpbin.org/status/404": 404
+    }
+}
