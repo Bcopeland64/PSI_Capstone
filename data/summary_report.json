@@ -1,0 +1,12 @@
+{
+    "total_records": 6,
+    "event_distribution": {
+        "process_started": 3,
+        "file_created": 2,
+        "file_deleted": 1
+    },
+    "top_frequent_paths": {
+        "/tmp/loader.sh": 5,
+        "/usr/bin/bash": 1
+    }
+}

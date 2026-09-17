@@ -1,50 +1,32 @@
-# 🚀 Python Workshop: Capstone Project
+# Data Analytics & Log Processing Automation Pipeline
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
+This project is an Automated Log Analytics and Data Processing Pipeline written in Python. It ingests system/security access logs from a CSV file, cleans and processes the data using Pandas, generates statistical JSON summaries, and produces visual reports with Matplotlib.
 
----
+--- 
 
-## 📌 Project Overview
+## Features
 
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
-
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
+- **Data Ingestion & Cleaning**: Reads log files using Pandas and cleans whitespace or missing values.
+- **Statistical Analytics**: Analyzes event distributions and identifies top frequent paths/actions.
+- **JSON Data Persistence**: Exports key analytics metrics directly to `summary_report.json`.
+- **Automated Visualization**: Generates a bar chart distribution saved as `events_chart.png`.
+- **Modular OOP Architecture**: Built using Object-Oriented Principles with the `DataPipeline` class for clean code structure.
 
 ---
 
-## 🛠️ Required Technical Components
-
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
-
----
-
-## 📂 Repository Structure
-
-Your final submission repository should adhere to a clean layout similar to this:
+## Repository Structure
 
 ```text
 capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
+├── data/
+│   ├── events_chart.png       # Generated visualization chart
+│   ├── sample_evidence.csv    # Input log dataset
+│   └── summary_report.json    # Exported summary metrics
+├── src/
 │   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
-│   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+│   ├── logic.py               # DataPipeline class & business logic
+│   ├── main.py                # Main application entry point
+│   └── utils.py               # Helper functions & file operations
+├── .gitignore
+├── README.md                  # Project documentation
+└── requirements.txt           # External Python dependencies
