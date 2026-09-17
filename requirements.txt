@@ -1,0 +1,3 @@
+requests>=2.31
+psutil>=5.9      # optional at runtime -- the tool falls back to `ps aux` if missing
+pytest>=7.4      # for running tests/

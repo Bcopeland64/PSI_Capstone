@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+triage_report.json
+triage_report.csv
+data/triage_history.db
+.DS_Store

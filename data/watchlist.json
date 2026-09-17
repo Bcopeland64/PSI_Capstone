@@ -1,0 +1,6 @@
+{
+  "watchlist_ports": [4444, 8080, 6666, 31337],
+  "watchlist_ips": [],
+  "recent_window_seconds": 3600,
+  "failed_login_threshold": 5
+}
