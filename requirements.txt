@@ -1,0 +1,10 @@
+# Core dependencies -- the tool runs without these too, via graceful fallbacks:
+#   psutil not installed  -> process listing falls back to `ps aux` / `tasklist`
+#   rich not installed    -> tables print as plain aligned text
+#   requests not installed -> `network` live endpoint checks report that plainly
+requests>=2.31
+psutil>=5.9
+rich>=13.0
+
+# Development / testing only
+pytest>=7.0
