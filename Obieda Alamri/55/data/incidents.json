@@ -1,0 +1,10 @@
+[
+    {
+        "incident_id": "INC-101",
+        "title": "sf",
+        "severity": "LOW",
+        "timestamp": "2026-09-17 14:40:59",
+        "type": "Network",
+        "ip_address": "100.1.12.10"
+    }
+]
