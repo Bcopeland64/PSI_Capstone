@@ -1,0 +1,6 @@
+sku,name,category,quantity,price,reorder_level,description,last_updated
+SKU-001,Laptop,Electronics,8,850.00,3,Portable work device,2026-09-16 08:00:00
+SKU-002,Mouse,Electronics,25,20.00,10,Wireless mouse,2026-09-16 08:05:00
+SKU-003,Notebook,Office,4,3.50,5,College ruled notebook,2026-09-16 08:10:00
+SKU-004,Pen,Office,30,1.25,10,Blue ink pen,2026-09-16 08:15:00
+SKU-005,Desk Lamp,Home Office,12,35.00,6,LED desk lamp,2026-09-16 08:20:00

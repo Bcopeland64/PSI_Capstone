@@ -1,3 +1,26 @@
+# Task & Inventory Management System
+
+A Python-based inventory and task management application that helps small businesses or students track stock, monitor low inventory, and record inventory-related transactions.
+
+## Features
+- Add, update, search, and remove inventory items
+- Track stock movements with transaction history
+- Detect low-stock items based on reorder thresholds
+- Save data to CSV files for persistence
+- Generate simple inventory reports
+- Built with OOP design and input validation
+- Includes a Rich-powered terminal interface
+
+## Project Structure
+- `src/main.py` – command-line interface
+- `src/logic.py` – core inventory logic and business rules
+- `src/models.py` – item and transaction dataclasses
+- `src/data_handler.py` – CSV read/write functions
+- `src/utils.py` – validation and formatting helpers
+- `tests/test_logic.py` – unit tests
+
+
+
 # 🚀 Python Workshop: Capstone Project
 
 Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
