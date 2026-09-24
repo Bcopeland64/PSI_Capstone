@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+data/triage.db
+data/triage_report.csv
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,7 @@
+incident_id,timestamp,source_ip,destination_ip,attack_type,username,description
+INC001,2026-09-20 10:15:00,192.168.1.10,10.0.0.5,Brute Force,admin,Multiple failed login attempts detected
+INC002,2026-09-20 11:20:00,10.10.10.15,10.0.0.20,Port Scan,user1,Multiple ports scanned on internal server
+INC003,2026-09-20 12:30:00,172.16.0.10,10.0.0.25,SQL Injection,dbadmin,Suspicious SQL injection payload detected
+INC004,2026-09-20 13:45:00,192.168.1.50,10.0.0.30,Malware,employee1,Malware communication detected
+INC005,2026-09-20 14:10:00,8.8.8.8,10.0.0.40,Phishing,employee2,Suspicious phishing activity reported
+INC006,2026-09-20 15:00:00,203.0.113.25,10.0.0.50,Unknown,user3,Unclassified suspicious network activity
