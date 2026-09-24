@@ -1,0 +1,4 @@
+2026-02-10 08:01:00 INFO  Service started
+2026-02-10 08:02:15 WARNING Connection retry to 172.16.0.4
+2026-02-10 08:03:40 INFO  Health check OK
+2026-02-10 08:04:59 WARNING Connection retry to 172.16.0.9
