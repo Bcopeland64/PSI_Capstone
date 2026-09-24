@@ -1,0 +1,28 @@
+[
+    {
+        "case_id": "1001",
+        "file_name": "suspicious.exe",
+        "file_size": 250000,
+        "executable": true,
+        "downloaded": true,
+        "antivirus_triggered": true,
+        "suspicious_extension": true,
+        "notes": "suspicious downloaded executable",
+        "risk_score": 10,
+        "risk_level": "HIGH",
+        "created_at": "2026-09-12 02:22:12"
+    },
+    {
+        "case_id": "1002",
+        "file_name": "sss",
+        "file_size": 250000,
+        "executable": true,
+        "downloaded": true,
+        "antivirus_triggered": true,
+        "suspicious_extension": true,
+        "notes": "null",
+        "risk_score": 10,
+        "risk_level": "HIGH",
+        "created_at": "2026-09-12 02:30:00"
+    }
+]
