@@ -1,50 +1,75 @@
-# 🚀 Python Workshop: Capstone Project
+﻿# capstone-project
+***A port scanner is: scanning systems you own or are authorized to test is useful for security, while scanning third-party systems without permission can be intrusive or potentially illegal.
+**important libraries:
+import socket  # standard library module for low-level network connections
+import time  # standard library module for timing and delays
+import concurrent.futures  # standard library module for running scans in parallel
 
-Welcome to the **Python Workshop Capstone Project**! This project serves as the final, comprehensive assessment of your journey through the workshop. It is designed to combine core programming fundamentals with practical software development workflows, problem-solving, and data handling.
+**first function(define a function that turns a hostname into an IP address)
+def resolve_host(target): 
+    """Return the IPv4 address for `target`, or None if it cannot be resolved."""
+    try:
+        return socket.gethostbyname(target)  # ask the OS resolver for the IPv4 address
+    except socket.gaierror:  # the hostname could not be resolved
+        return None  # signal failure to the caller
 
----
+**secound function(define a function that tests a single TCP port)
+def scan_port(host, port, timeout=1.0): 
+    """Return (port, is_open, banner) for one host:port combination."""
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # create a TCP socket
+    sock.settimeout(timeout)  # don't block forever on unresponsive hosts
+    try:
+        result = sock.connect_ex((host, port))  # attempt a TCP handshake; 0 means open
+        if result != 0:  # non-zero return code means connection failed
+            return (port, False, "")  # report the port as closed/filtered
+        banner = ""  # default banner if the service doesn't greet us
+        try:
+            sock.settimeout(0.5)  # short window for grabbing a banner
+            banner = sock.recv(1024).decode(errors="ignore").strip()  # read up to 1 KB
+        except (socket.timeout, UnicodeDecodeError):  # no banner or binary junk
+            pass  # leave banner empty
+        return (port, True, banner)  # report the port as open, with any banner
+    except (socket.timeout, ConnectionRefusedError, OSError):  # connection problems
+        return (port, False, "")  # treat all of them as "not open"
+    finally:
+        sock.close()  # always release the socket
 
-## 📌 Project Overview
+**third function( # define a function that turns a string like "22,80,100-110" into a list)
+def parse_ports(spec): 
+    """Return a sorted list of ints from a comma/range port spec."""
+    ports = set()  # use a set so duplicates collapse automatically
+    for chunk in spec.split(","):  # split on commas
+        chunk = chunk.strip()  # remove surrounding whitespace
+        if not chunk:  # skip empty fragments (e.g. trailing comma)
+            continue  # move to the next chunk
+        if "-" in chunk:  # a range like "100-110"
+            lo, hi = chunk.split("-", 1)  # split once on the dash
+            ports.update(range(int(lo), int(hi) + 1))  # add every port in the range
+        else:  # a single port like "80"
+            ports.add(int(chunk))  # add the parsed integer
+    return sorted(ports)  # return a deterministic, sorted list
 
-For this capstone, students are required to design, build, and document a fully functional Python application. The project must solve a real-world problem or streamline a business process, demonstrating mastery of the core Python concepts covered throughout the workshop.
+**fourth function( # define a function that turns a string like "22,80,100-110" into a list)
+def scan_host(host, ports, timeout=1.0, workers=100): 
+    """Return a list of (port, banner) tuples for every open port on `host`."""
+    open_ports = []  # accumulator list of (port, banner) tuples
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:  # spin up a worker pool
+        futures = {pool.submit(scan_port, host, p, timeout): p for p in ports}  # queue one job per port
+        for fut in concurrent.futures.as_completed(futures):  # consume results as they finish
+            port, is_open, banner = fut.result()  # unpack the scan result
+            if is_open:  # only care about ports that answered
+                open_ports.append((port, banner))  # record the open port and any banner
+    return sorted(open_ports)  # return results in ascending port order
 
-### 💡 Project Ideas & Scope
-You may choose one of the following tracks or propose a custom project (subject to instructor approval):
-1. **Data Analytics & Automation Pipeline**: Fetch data from an external API or dynamic CSV/JSON dataset, perform data cleaning and transformation using Pandas, and generate automated visual reports/summaries.
-2. **Interactive CLI / Utility Tool**: Build an interactive Command Line Interface (CLI) application with persistent data storage (SQLite or file-based JSON/CSV), robust user input validation, and modular structure.
-3. **Web Scraper & Analysis Tool**: Construct an ethical web scraping tool (using `BeautifulSoup` or `requests`), parse and store structured data, and output insights/metrics to the user.
-4. **Task/Inventory Management System**: Develop an Object-Oriented Programming (OOP) system managing entities, state, transactions, and historical reporting.
+**fifth function(# define a function that fetches a service banner on demand)
+def grab_banner(host, port, timeout=1.0):  
+    """Return a one-line banner string for `host:port`, or '' if none."""
+    _, is_open, banner = scan_port(host, port, timeout)  # reuse the single-port scan
+    return banner if is_open else ""  # only return banners for open ports
 
----
-
-## 🛠️ Required Technical Components
-
-To pass the capstone project, your codebase **must** incorporate the following elements:
-
-* **Modular Code Architecture**: Clear organization across separate modules/files (e.g., `main.py`, `models.py`, `utils.py`, `data_handler.py`).
-* **Object-Oriented Programming (OOP)** or Functional Paradigms: Effective use of custom classes, methods, encapsulated state, or pure functional structures.
-* **Data Persistence**: Ability to read from and write to external files (`.csv`, `.json`, `.txt`) or a relational database (`SQLite`).
-* **Error Handling & Input Validation**: Implementation of `try-except` blocks to handle edge cases, missing files, API rate limits, and invalid user inputs gracefully.
-* **External Package / API Integration**: Utilization of standard libraries alongside third-party modules (e.g., `requests`, `pandas`, `matplotlib`, `rich`, or `pytest`).
-* **Clean & Readable Code**: PEP 8 compliance, informative variable/function naming, concise comments, and explicit docstrings for major functions/classes.
-
----
-
-## 📂 Repository Structure
-
-Your final submission repository should adhere to a clean layout similar to this:
-
-```text
-capstone_project/
-├── data/                  # Sample or generated datasets (CSV, JSON, DB)
-│   └── sample_data.csv
-├── src/                   # Core application source code
-│   ├── __init__.py
-│   ├── main.py            # Main entry point for running the application
-│   ├── utils.py           # Helper functions and validations
-│   └── logic.py           # Main business/data processing logic
-├── tests/                 # Unit tests (optional/extra credit)
-│   └── test_logic.py
-├── .gitignore             # Git ignore file for __pycache__, envs, etc.
-├── requirements.txt       # List of Python dependencies
-└── README.md              # Project documentation and setup instructions
+last function(define a function that measures how long a scan takes)
+def timed_scan(host, ports, timeout=1.0):  
+    """Run scan_host and return (results, elapsed_seconds)."""
+    start = time.time()  # capture the start time
+    results = scan_host(host, ports, timeout)  # perform the scan
+    return results, time.time() - start  # return results plus duration
