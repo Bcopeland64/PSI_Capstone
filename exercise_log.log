@@ -1,0 +1,8 @@
+2026-03-02 07:58:10 INFO  Service started
+2026-03-02 07:59:02 WARNING Disk usage at 85% on host 10.1.0.4
+2026-03-02 08:00:15 ERROR Connection refused from 203.0.113.9
+2026-03-02 08:00:16 ERROR Connection refused from 203.0.113.9
+2026-03-02 08:01:40 INFO  Health check OK
+2026-03-02 08:02:05 WARNING Disk usage at 90% on host 10.1.0.4
+2026-03-02 08:03:22 ERROR Connection refused from 198.51.100.23
+2026-03-02 08:04:50 INFO  Health check OK
